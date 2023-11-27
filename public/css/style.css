@@ -423,6 +423,70 @@ footer{
     padding:10px;
 }
 
+/*calendrier*/
+
+#calendar {
+    max-width: 700px;
+    margin: 20px auto;
+    background-color: var(--light-azure);
+    padding: 50px;
+    border-radius: 20px;
+    color: black;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th, td {
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    color: black;
+}
+
+th {
+    padding: 10px 30px;
+    background-color: white;
+}
+
+td {
+    padding: 35px;
+    cursor: pointer;
+    border-radius: 60px;
+}
+
+td:hover {
+    background-color: white;
+}
+
+.today {
+    background-color: orange;
+    color: white;
+}
+
+.today:hover {
+    color: black;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.navigation img {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+h2{
+    margin-bottom: 30px;
+}
 
 @media screen and (max-width: 1180px) {
     .wrapper, .menu-btn {
