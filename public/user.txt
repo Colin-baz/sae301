@@ -14,3 +14,23 @@ Username: c
 Email: c@gmail.com
 Password: c
 
+Username: test
+Email: tes@gmail.com
+Password: a
+
+Username: test1
+Email: test1@gmail.com
+Password: a
+
+Username: abc
+Email: abc@gmail.com
+Password: abc
+
+Username: bob
+Email: bob@gmail.com
+Password: bob
+
+Username: bob
+Email: bob@gmail.com
+Password: bob
+

@@ -1,0 +1,268 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SearchController!{% endblock %}
+
+{% block body %}
+</header>
+<style>
+
+    .containers {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .py-5 {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    #panier {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        font-size: 1rem;
+        line-height: 1.5;
+        font-family: 'Prompt', sans-serif;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        letter-spacing: 1px;
+        background: #01198E;
+        padding: 20px 20px;
+        border-radius: 40px;
+        font-weight: 600;
+        text-transform: uppercase;
+        border: none;
+        color: #fff;
+        padding-left: 70px;
+    }
+
+    .card {
+        max-width: 500px;
+        width: 100%;
+    }
+</style>
+    <section class="py-5 text-center containers">
+        <div id="panier">
+            <label style="    position: relative;
+    top: 22px;
+    left: 40px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </label>
+            <input class="form-control" type="search" id="searchInput" placeholder="Rechercher..." aria-label="Search">
+        </div>
+        <div class="filtrage" style="display: flex;align-items: baseline;
+    justify-content: space-around;">
+            <select class="filtrage-matiere" aria-label="Filtrer par matière :" id="categoryFilter" style="padding: 8px 15px;
+    border-radius: 20px;
+    color: #fff;
+    background: #01198E;
+    border: none;margin-right: 10px;">
+                <option value="all">Toutes les Matières</option>
+                <option value="R312">R312</option>
+                <option value="R313">R313</option>
+                <option value="R314">R314</option>
+            </select>
+
+
+            <input class="filtrage-date" aria-label="Filtrer par date de rendu :" style="margin-right: 8px;padding: 8px 15px;
+    border-radius: 20px;
+    color: #fff;
+    background: #01198E;
+    border: none;" type="date" id="dateFilter">
+
+            <select aria-label="Trier par :" id="sortOrder" style="padding: 8px 15px;
+    border-radius: 20px;
+    color: #fff;
+    background: #01198E;
+    border: none;margin-right: 10px;">
+                <option value="old">Echéances iminentes</option>
+                <option value="recent">Echéances futures</option>
+            </select>
+
+        </div>
+    </section>
+
+    <div style="display: flex; justify-content: center; align-items: center">
+        <div id="panier2" style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
+
+            <div class="col" data-category="R312">
+                <div class="card">
+                    <div class="panier-card">
+                        <h2 style="font-weight: 700; padding: 10px;font-size: 17px;">R312 - Integration web</h2>
+                        <p style="font-size: 14px; padding: 10px;">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. </p>
+                        <p style="font-size: 14px; padding: 10px;">A rendre le <span class="due-date">05/12/2023</span></p>
+                        <div style="text-align: right;padding: 10px;"><a class="form-submit" href="#" style="text-decoration: none; padding: 7px 13px; font-family: 'Prompt', sans-serif; border-radius: 30px;">VOIR PLUS</a></div>
+                        <!-- Ajoutez d'autres éléments si nécessaire -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col" data-category="R313">
+                <div class="card">
+                    <div class="panier-card">
+                        <h2 style="font-weight: 700; padding: 10px;font-size: 17px;">R313 - Communication</h2>
+                        <p style="font-size: 14px; padding: 10px;">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. </p>
+                        <p class="due-date" style="font-size: 14px; padding: 10px;">A rendre le <span class="due-date">10/12/2023</span></p>
+                        <div style="text-align: right;padding: 10px;"><a class="form-submit" href="#" style="text-decoration: none; padding: 7px 13px; font-family: 'Prompt', sans-serif; border-radius: 30px;">VOIR PLUS</a></div>
+                        <!-- Ajoutez d'autres éléments si nécessaire -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col" data-category="R314">
+                <div class="card">
+                    <div class="panier-card">
+                        <h2 style="font-weight: 700; padding: 10px;font-size: 17px;">R314 - Culture Artistique</h2>
+                        <p style="font-size: 14px; padding: 10px;">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. </p>
+                        <p class="due-date" style="font-size: 14px; padding: 10px;">A rendre <span class="due-date">le 16/12/2023</span></p>
+                        <div style="text-align: right;padding: 10px;"><a class="form-submit" href="#" style="text-decoration: none; padding: 7px 13px; font-family: 'Prompt', sans-serif; border-radius: 30px;">VOIR PLUS</a></div>
+                        <!-- Ajoutez d'autres éléments si nécessaire -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col" data-category="R312">
+                <div class="card">
+                    <div class="panier-card">
+                        <h2 style="font-weight: 700; padding: 10px;font-size: 17px;">R312 - Developpement web</h2>
+                        <p style="font-size: 14px; padding: 10px;">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. </p>
+                        <p class="due-date" style="font-size: 14px; padding: 10px;">A rendre le <span class="due-date">20/12/2023</span></p>
+                        <div style="text-align: right;padding: 10px;"><a class="form-submit" href="#" style="text-decoration: none; padding: 7px 13px; font-family: 'Prompt', sans-serif; border-radius: 30px;">VOIR PLUS</a></div>
+                        <!-- Ajoutez d'autres éléments si nécessaire -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col" data-category="R313">
+                <div class="card">
+                    <div class="panier-card">
+                        <h2 style="font-weight: 700; padding: 10px;font-size: 17px;">R313 - Déploiement de service</h2>
+                        <p style="font-size: 14px; padding: 10px;">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. </p>
+                        <p class="due-date" style="font-size: 14px; padding: 10px;">A rendre le <span class="due-date">21/12/2023</span></p>
+                        <div style="text-align: right;padding: 10px;"><a class="form-submit" href="#" style="text-decoration: none; padding: 7px 13px; font-family: 'Prompt', sans-serif; border-radius: 30px;">VOIR PLUS</a></div>
+                        <!-- Ajoutez d'autres éléments si nécessaire -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col" data-category="R314">
+                <div class="card">
+                    <div class="panier-card">
+                        <h2 style="font-weight: 700; padding: 10px;font-size: 17px;">R314 - Docker</h2>
+                        <p style="font-size: 14px; padding: 10px;">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. </p>
+                        <p class="due-date" style="font-size: 14px; padding: 10px;">A rendre le <span class="due-date">22/12/2023</span></p>
+                        <div style="text-align: right;padding: 10px;"><a class="form-submit" href="#" style="text-decoration: none; padding: 7px 13px; font-family: 'Prompt', sans-serif; border-radius: 30px;">VOIR PLUS</a></div>
+                        <!-- Ajoutez d'autres éléments si nécessaire -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const searchInput = document.getElementById("searchInput");
+            const categoryFilter = document.getElementById("categoryFilter");
+            const dateFilter = document.getElementById("dateFilter");
+            const sortOrder = document.getElementById("sortOrder");
+            const container = document.getElementById("panier2");
+
+            let initialCardsState = [];
+
+            // Sauvegarde l'état initial des cartes au chargement de la page
+            function saveInitialCardsState() {
+                initialCardsState = Array.from(document.querySelectorAll(".card")).map(card => ({
+                    card,
+                    display: card.parentElement.style.display
+                }));
+            }
+
+            // Restaure l'état initial des cartes
+            function restoreInitialCardsState() {
+                initialCardsState.forEach(({ card, display }) => {
+                    card.parentElement.style.display = display;
+                });
+            }
+
+            categoryFilter.addEventListener("change", updateCards);
+            searchInput.addEventListener("input", updateCards);
+            dateFilter.addEventListener("input", updateCards);
+            sortOrder.addEventListener("change", updateCards);
+
+            function updateCards() {
+                saveInitialCardsState();
+
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedCategory = categoryFilter.value.toLowerCase();
+                const selectedDate = dateFilter.value;
+                const selectedSortOrder = sortOrder.value;
+
+                let cards = Array.from(document.querySelectorAll(".card"));
+
+                cards = cards.filter(card => {
+                    const title = card.querySelector("h2").textContent.toLowerCase();
+                    const category = card.parentElement.getAttribute("data-category").toLowerCase();
+                    const dueDateText = card.querySelector(".due-date").textContent;
+                    const dateMatch = dueDateText.match(/(\d{2})\/(\d{2})\/(\d{4})/);
+
+                    if (dateMatch) {
+                        const dueDate = new Date(
+                            parseInt(dateMatch[3]),
+                            parseInt(dateMatch[2]) - 1,
+                            parseInt(dateMatch[1])
+                        );
+
+                        const isMatch = (
+                            (selectedCategory === "all" || category === selectedCategory) &&
+                            title.includes(searchTerm) &&
+                            (selectedDate === "" || dueDate >= new Date(selectedDate))
+                        );
+
+                        card.parentElement.style.display = isMatch ? "block" : "none";
+
+                        return isMatch;
+                    } else {
+                        console.error("Date non trouvée dans le format attendu.");
+                        return false;
+                    }
+                });
+
+                // Trie les cartes en fonction de l'option de tri sélectionnée
+                cards.sort((a, b) => {
+                    const dateA = new Date(a.querySelector(".due-date").textContent.replace(/(\d{2})\/(\d{2})\/(\d{4})/, "$2/$1/$3"));
+                    const dateB = new Date(b.querySelector(".due-date").textContent.replace(/(\d{2})\/(\d{2})\/(\d{4})/, "$2/$1/$3"));
+
+                    return selectedSortOrder === "recent" ? dateB - dateA : dateA - dateB;
+                });
+
+                // Réorganise les cartes dans le conteneur
+                container.innerHTML = "";
+                cards.forEach((card) => container.appendChild(card.parentElement));
+
+                restoreInitialCardsState();
+            }
+
+            // Sauvegarde l'état initial des cartes au chargement de la page
+            saveInitialCardsState();
+
+            // Restaure l'état initial des cartes au chargement de la page
+            restoreInitialCardsState();
+        });
+
+    </script>
+
+
+
+
+{% endblock %}
